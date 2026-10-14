@@ -30,4 +30,10 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_url, notice: "User was successfully destroyed."
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :username)
+  end
 end
